@@ -176,7 +176,7 @@
                 // Set the position and display the image tooltip
                 $(this).css('z-index', '15')
                 .children("div.tooltip")
-                .css({ 'top': y + 10, 'left': x - 150, 'display': 'block' });
+                .css({ 'top': y + 10, 'left': x - 200, 'display': 'block' });
 
             }).mousemove(function (e) {
                 // Calculate the position of the image tooltip
@@ -184,7 +184,7 @@
                 y = e.pageY - $(this).offset().top;
 
                 // This line causes the tooltip will follow the mouse pointer
-                $(this).children("div.tooltip").css({ 'top': y + 10, 'left': x - 150});
+                $(this).children("div.tooltip").css({ 'top': y + 10, 'left': x - 200});
 
             }).mouseleave(function () {
                 // Reset the z-index and hide the image tooltip
