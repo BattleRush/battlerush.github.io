@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html ng-app="spaceXPatchList">
+<head>
+    <title>SpaceX Patches</title>
+
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script type="text/javascript" src="library/js/jquery-2.1.1.min.js"></script>
+    <link rel="stylesheet" href="library/css/materialize.min.css">
+    <script src="library/js/materialize.min.js"></script>
+    <script src="library/js/angular.min.js"></script>
+
+    <style>
+        h1, h2, h3, h4, p {
+            color: white;
+        }
+
+        a {
+            color: darkblue;
+        }
+
+        table {
+            background-color: rgba(255, 255, 255, 0.35);
+        }
+
+        table.striped > tbody > tr:nth-child(odd) {
+            background-color: rgba(180, 180, 180, 0.35);
+        }
+
+        table.striped > tbody > tr > td {
+            border-radius: 0px;
+        }
+
+        body {
+            background: linear-gradient( rgba(0, 0, 15, 0.60), rgba(0, 0, 0, 0.60) ), url(images/background.jpg) no-repeat center center fixed;
+            background-size: cover;
+            background-attachment: fixed;
+            padding: 30px;
+            overflow-x: hidden;
+            margin-bottom:300px;
+        }
+
+        .sortorder:after {
+            content: '\25b2';
+        }
+
+        .sortorder.reverse:after {
+            content: '\25bc';
+        }
+
+        .thumbnail-item {
+            position: relative;
+        }
+
+        .tooltip {
+            display: none;
+            left: -200px;
+            top: -200px;
+            position: absolute;
+            padding: 8px 0 0 8px;
+        }
+    </style>
+
+
+    <script>
+        var app = angular.module("spaceXPatchList", []);
+
+        app.controller('MainController', ['$scope', '$filter', function ($scope, $filter) {
+            var orderBy = $filter('orderBy');
+
+            $scope.predicate = 'Id';//Default
+            $scope.reverse = false;
+
+            $scope.order = function (predicate) {
+                $scope.predicate = predicate;
+                $scope.reverse = ($scope.predicate === predicate) ? !$scope.reverse : false;
+                $scope.missions = orderBy($scope.missions, predicate, $scope.reverse);
+            };
+
+            $scope.missions = [
+                {
+                    id: 1,
+                    name: "Falcon 1 flight 1",
+                    launchedUTCTime: "2006-03-24",
+                    availablePatch: true,
+                    isPublic: true,
+                    imageUrl: "falcon_1_flight_1.png",
+                    spaceXStatsUrl: "https://spacexstats.com/missions/falconsat-2"
+                }, {
+                    id: 2,
+                    name: "Falcon 1 flight 2",
+                    launchedUTCTime: "2007-03-20",
+                    availablePatch: true,
+                    isPublic: true,
+                    imageUrl: "falcon_1_flight_2.png",
+                    spaceXStatsUrl: "https://spacexstats.com/missions/demo-sat"
+                }, {
+                    id: 3,
+                    name: "Falcon 1 flight 3",
+                    launchedUTCTime: "2008-08-02",
+                    availablePatch: true,
+                    isPublic: true,
+                    imageUrl: "falcon_1_flight_3.png",
+                    spaceXStatsUrl: "https://spacexstats.com/missions/falcon-1-flight-3"
+                }, {
+                    id: 4,
+                    name: "Falcon 1 flight 4",
+                    launchedUTCTime: "2008-09-28",
+                    availablePatch: true,
+                    isPublic: true,
+                    imageUrl: "falcon_1_flight_4.png",
+                    spaceXStatsUrl: "https://spacexstats.com/missions/ratsat"
+                }, {
+                    id: 5,
+                    name: "Falcon 1 flight 5RazakSAT",
+                    launchedUTCTime: "2009-07-13",
+                    availablePatch: true,
+                    isPublic: true,
+                    imageUrl: "falcon_1_flight_5.png",
+                    spaceXStatsUrl: "https://spacexstats.com/missions/razaksat"
+                }, {
+                    id: 6,
+                    name: "Falcon 9 flight 1",
+                    launchedUTCTime: "2010-06-04",
+                    availablePatch: true,
+                    isPublic: true,
+                    imageUrl: "f9_first_flight.jpg",
+                    spaceXStatsUrl: "https://spacexstats.com/missions/dsqu"
+                }, {
+                    id: 7,
+                    name: "COTS 1 demo 1",
+                    launchedUTCTime: "2010-12-08",
+                    availablePatch: true,
+                    isPublic: true,
+                    imageUrl: "cots_demo_1.png",
+                    spaceXStatsUrl: "https://spacexstats.com/missions/cots-demo-1"
+                }, {
+                    id: 8,
+                    name: "STS-133 Dragoneye",
+                    launchedUTCTime: "2011-02-24",
+                    availablePatch: false,
+                    isPublic: false,
+                    imageUrl: "sts_133_dragoneye.jpg",
+                    spaceXStatsUrl: "https://spacexstats.com/missions/razaksat"
+                }, {
+                    id: 9,
+                    name: "COTS 2 demo 2",
+                    launchedUTCTime: "2012-05-22",
+                    availablePatch: true,
+                    isPublic: true,
+                    imageUrl: "cots_demo_2.jpg",
+                    spaceXStatsUrl: "https://spacexstats.com/missions/razaksat"
+                }, {
+                    id: 10,
+                    name: "COTS 2 demo 2 Dragon Patch",
+                    launchedUTCTime: "2012-05-22",
+                    availablePatch: false,
+                    isPublic: false,
+                    imageUrl: "cots_demo_2_dragon_patch.jpg",
+                    spaceXStatsUrl: "https://spacexstats.com/missions/razaksat"
+                }
+            ]
+        }]);
+
+
+        // Load this script once the document is ready
+        $(document).ready(function () {
+
+            // Get all the thumbnail
+            $('div.thumbnail-item').mouseenter(function (e) {
+                // Calculate the position of the image tooltip
+                x = e.pageX - $(this).offset().left;
+                y = e.pageY - $(this).offset().top;
+
+                // Set the z-index of the current item,
+                // make sure it's greater than the rest of thumbnail items
+                // Set the position and display the image tooltip
+                $(this).css('z-index', '15')
+                .children("div.tooltip")
+                .css({ 'top': y + 10, 'left': x - 300, 'display': 'block' });
+
+            }).mousemove(function (e) {
+                // Calculate the position of the image tooltip
+                x = e.pageX - $(this).offset().left;
+                y = e.pageY - $(this).offset().top;
+
+                // This line causes the tooltip will follow the mouse pointer
+                $(this).children("div.tooltip").css({ 'top': y + 10, 'left': x - 300 });
+
+            }).mouseleave(function () {
+                // Reset the z-index and hide the image tooltip
+                $(this).css('z-index', '1')
+                .children("div.tooltip")
+                .animate({ "opacity": "hide" }, "fast");
+            });
+        });
+    </script>
+
+</head>
+<body ng-controller="MainController">
+    <center>
+        <h1>SpaceX Patchlist</h1>
+    </center>
+
+    <div class="row">
+        <div class="container">
+            <p>
+                This website is not official.
+            </p>
+
+            <table class="striped centered responsive-table">
+                <thead>
+                    <tr>
+                        <th data-field="id" ng-click="order('Id')">Flight Id<span class="sortorder" ng-show="predicate === 'Id'" ng-class="{reverse:reverse}"></span></th>
+                        <th data-field="name" ng-click="order('LaunchedUTCTime')">Launch Date<span class="sortorder" ng-show="predicate === 'LaunchedUTCTime'" ng-class="{reverse:reverse}"></span></th>
+                        <th data-field="price" ng-click="order('Name')">Name<span class="sortorder" ng-show="predicate === 'Name'" ng-class="{reverse:reverse}"></span></th>
+                        <th data-field="price" ng-click="order('IsAvailable')">Available<span class="sortorder" ng-show="predicate === 'IsAvailable'" ng-class="{reverse:reverse}"></span></th>
+                        <th data-field="price" ng-click="order('IsPublic')">Public<span class="sortorder" ng-show="predicate === 'IsPublic'" ng-class="{reverse:reverse}"></span></th>
+                        <th data-field="price">Image</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr ng-repeat="mission in missions">
+                        <td>{{mission.id}}</td>
+                        <td>{{mission.launchedUTCTime | date:'shortDate'}}</td>
+                        <td><a href="{{mission.spaceXStatsUrl}}" target="_blank"> {{mission.name}}</a></td>
+                        <td ng-class="mission.availablePatch ? 'green-text text-darken-4': 'red-text text-darken4'">{{mission.availablePatch == true ? 'Yes' : 'No'}}</td>
+                        <td ng-class="mission.isPublic ? 'green-text text-darken-4': 'red-text text-darken-4'">{{mission.isPublic == true ? 'Yes' : 'No'}}</td>
+                        <td style="padding: 0;">
+                            <center>
+                                <div class="thumbnail-item">
+                                    <img height="100" ng-src="patches/{{mission.imageUrl}}" />
+
+                                    <div class="tooltip">
+                                        <img ng-src="http://spacexpatchlist.space/patches/{{mission.imageUrl}}" />
+
+                                    </div>
+                                </div>
+                            </center>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
