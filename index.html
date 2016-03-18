@@ -67,7 +67,7 @@
         app.controller('MainController', ['$scope', '$filter', function ($scope, $filter) {
             var orderBy = $filter('orderBy');
 
-            $scope.predicate = 'Id';//Default
+            $scope.predicate = 'id';//Default
             $scope.reverse = false;
 
             $scope.order = function (predicate) {
@@ -176,7 +176,7 @@
                 // Set the position and display the image tooltip
                 $(this).css('z-index', '15')
                 .children("div.tooltip")
-                .css({ 'top': y + 10, 'left': x - 300, 'display': 'block' });
+                .css({ 'top': y + 10, 'left': x, 'display': 'block' });
 
             }).mousemove(function (e) {
                 // Calculate the position of the image tooltip
@@ -184,7 +184,7 @@
                 y = e.pageY - $(this).offset().top;
 
                 // This line causes the tooltip will follow the mouse pointer
-                $(this).children("div.tooltip").css({ 'top': y + 10, 'left': x - 300 });
+                $(this).children("div.tooltip").css({ 'top': y + 10, 'left': x });
 
             }).mouseleave(function () {
                 // Reset the z-index and hide the image tooltip
@@ -210,11 +210,11 @@
             <table class="striped centered responsive-table">
                 <thead>
                     <tr>
-                        <th data-field="id" ng-click="order('Id')">Flight Id<span class="sortorder" ng-show="predicate === 'Id'" ng-class="{reverse:reverse}"></span></th>
-                        <th data-field="name" ng-click="order('LaunchedUTCTime')">Launch Date<span class="sortorder" ng-show="predicate === 'LaunchedUTCTime'" ng-class="{reverse:reverse}"></span></th>
-                        <th data-field="price" ng-click="order('Name')">Name<span class="sortorder" ng-show="predicate === 'Name'" ng-class="{reverse:reverse}"></span></th>
-                        <th data-field="price" ng-click="order('IsAvailable')">Available<span class="sortorder" ng-show="predicate === 'IsAvailable'" ng-class="{reverse:reverse}"></span></th>
-                        <th data-field="price" ng-click="order('IsPublic')">Public<span class="sortorder" ng-show="predicate === 'IsPublic'" ng-class="{reverse:reverse}"></span></th>
+                        <th data-field="id" ng-click="order('id')">Flight Id<span class="sortorder" ng-show="predicate === 'Id'" ng-class="{reverse:reverse}"></span></th>
+                        <th data-field="name" ng-click="order('launchedUTCTime')">Launch Date<span class="sortorder" ng-show="predicate === 'LaunchedUTCTime'" ng-class="{reverse:reverse}"></span></th>
+                        <th data-field="price" ng-click="order('name')">Name<span class="sortorder" ng-show="predicate === 'Name'" ng-class="{reverse:reverse}"></span></th>
+                        <th data-field="price" ng-click="order('isAvailable')">Available<span class="sortorder" ng-show="predicate === 'IsAvailable'" ng-class="{reverse:reverse}"></span></th>
+                        <th data-field="price" ng-click="order('isPublic')">Public<span class="sortorder" ng-show="predicate === 'IsPublic'" ng-class="{reverse:reverse}"></span></th>
                         <th data-field="price">Image</th>
                     </tr>
                 </thead>
