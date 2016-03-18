@@ -221,7 +221,7 @@
 
                 <tbody>
                     <tr ng-repeat="mission in missions">
-                        <td>{{mission.id}}</td>
+                        <td>{{mission.id}}</td><!--<td>{{$index + 1}}</td>-->
                         <td>{{mission.launchedUTCTime | date:'shortDate'}}</td>
                         <td><a href="{{mission.spaceXStatsUrl}}" target="_blank"> {{mission.name}}</a></td>
                         <td ng-class="mission.availablePatch ? 'green-text text-darken-4': 'red-text text-darken4'">{{mission.availablePatch == true ? 'Yes' : 'No'}}</td>
