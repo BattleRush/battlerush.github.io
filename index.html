@@ -122,28 +122,28 @@
 
 </head>
 <body ng-controller="MainController">
+    <div class="nav-wrapper hoverable">
+        <ul id="slide-out" class="side-nav fixed">
+            <li><a href="#/tab1">First Sidebar Link</a></li>
+            <li><a href="#/tab2">Second Sidebar Link</a></li>
+            <li class="no-padding">
+                <ul class="collapsible collapsible-accordion">
+                    <li>
+                        <a class="collapsible-header">Dropdown<i class="mdi-navigation-arrow-drop-down"></i></a>
+                        <div class="collapsible-body">
+                            <ul>
+                                <li><a href="#/tab3">First</a></li>
+                                <li><a href="#/tab4">Second</a></li>
+                                <li><a href="#/tab5">Third</a></li>
+                                <li><a href="#/tab6">Fourth</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
 
-    <ul id="slide-out" class="side-nav fixed">
-        <li><a href="#/tab1">First Sidebar Link</a></li>
-        <li><a href="#/tab2">Second Sidebar Link</a></li>
-        <li class="no-padding">
-            <ul class="collapsible collapsible-accordion">
-                <li>
-                    <a class="collapsible-header">Dropdown<i class="mdi-navigation-arrow-drop-down"></i></a>
-                    <div class="collapsible-body">
-                        <ul>
-                            <li><a href="#/tab3">First</a></li>
-                            <li><a href="#/tab4">Second</a></li>
-                            <li><a href="#/tab5">Third</a></li>
-                            <li><a href="#/tab6">Fourth</a></li>
-                        </ul>
-                    </div>
-                </li>
-            </ul>
-        </li>
-    </ul>
-    <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-    <div class="left">
         <ul class="side-nav" id="mobile-demo">
             <li><a href="#/tab1">First Sidebar Link</a></li>
             <li><a href="#/tab2">Second Sidebar Link</a></li>
