@@ -67,48 +67,48 @@
 
     <script>
         var app = angular.module("youSkins", ['ngRoute']);
-       
+
         app.config(['$routeProvider', '$locationProvider', '$compileProvider', '$compileProvider', function ($routeProvider, $locationProvider, $compileProvider, $compileProvider) {
 
-        $routeProvider
-                   .when('/', {
-                       templateUrl: 'views/home.html'//,
-                       //controller: 'homeController'
-                   })
-                   .when('/home', {
-                       templateUrl: 'views/home.html'//,
-                       //controller: 'homeController'
-                   })
-                   .when('/tab1', {
-                       templateUrl: '/views/tab1.html'//,
-                       //controller: 'faqController'
-                   })
-                   .when('/tab2', {
-                       templateUrl: '/views/tab2.html'//,
-                       //controller: 'itemDetailController'
-                   })
-                   .when('/tab3', {
-                       templateUrl: '/views/tab3.html'//,
-                       //controller: 'sellController'
-                   })
-                   .when('/tab4', {
-                       templateUrl: '/views/tab4.html'//,
-                       //controller: 'tradeController'
-                   })
-                   .when('/tab5', {
-                       templateUrl: '/views/tab5.html'//,
-                       //controller: 'accountDetailsController'
-                   })
-                   .when('/tab6', {
-                       templateUrl: '/views/tab6.html'//,
-                       //controller: 'accountDetailsController'
-                   });
+            $routeProvider
+                       .when('/', {
+                           templateUrl: 'views/home.html'//,
+                           //controller: 'homeController'
+                       })
+                       .when('/home', {
+                           templateUrl: 'views/home.html'//,
+                           //controller: 'homeController'
+                       })
+                       .when('/tab1', {
+                           templateUrl: '/views/tab1.html'//,
+                           //controller: 'faqController'
+                       })
+                       .when('/tab2', {
+                           templateUrl: '/views/tab2.html'//,
+                           //controller: 'itemDetailController'
+                       })
+                       .when('/tab3', {
+                           templateUrl: '/views/tab3.html'//,
+                           //controller: 'sellController'
+                       })
+                       .when('/tab4', {
+                           templateUrl: '/views/tab4.html'//,
+                           //controller: 'tradeController'
+                       })
+                       .when('/tab5', {
+                           templateUrl: '/views/tab5.html'//,
+                           //controller: 'accountDetailsController'
+                       })
+                       .when('/tab6', {
+                           templateUrl: '/views/tab6.html'//,
+                           //controller: 'accountDetailsController'
+                       });
         }]);
 
 
 
         app.controller('MainController', ['$scope', '$filter', function ($scope, $filter) {
-  
+
 
             $('.button-collapse').sideNav({
                 menuWidth: 300, // Default is 240
@@ -143,27 +143,27 @@
         </li>
     </ul>
     <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-
-    <ul class="side-nav" id="mobile-demo">
-        <li><a href="#/tab1">First Sidebar Link</a></li>
-        <li><a href="#/tab2">Second Sidebar Link</a></li>
-        <li class="no-padding">
-            <ul class="collapsible collapsible-accordion">
-                <li>
-                    <a class="collapsible-header">Dropdown<i class="mdi-navigation-arrow-drop-down"></i></a>
-                    <div class="collapsible-body">
-                        <ul>
-                            <li><a href="#/tab3">First</a></li>
-                            <li><a href="#/tab4">Second</a></li>
-                            <li><a href="#/tab5">Third</a></li>
-                            <li><a href="#/tab6">Fourth</a></li>
-                        </ul>
-                    </div>
-                </li>
-            </ul>
-        </li>
-    </ul>
-
+    <nav class="side_nav">
+        <ul class="side-nav" id="mobile-demo">
+            <li><a href="#/tab1">First Sidebar Link</a></li>
+            <li><a href="#/tab2">Second Sidebar Link</a></li>
+            <li class="no-padding">
+                <ul class="collapsible collapsible-accordion">
+                    <li>
+                        <a class="collapsible-header">Dropdown<i class="mdi-navigation-arrow-drop-down"></i></a>
+                        <div class="collapsible-body">
+                            <ul>
+                                <li><a href="#/tab3">First</a></li>
+                                <li><a href="#/tab4">Second</a></li>
+                                <li><a href="#/tab5">Third</a></li>
+                                <li><a href="#/tab6">Fourth</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
     <div class="row">
         <div class="col s10 offset-s2">
 
@@ -171,7 +171,7 @@
 
 
 
-           
+
         </div>
     </div>
 </body>
