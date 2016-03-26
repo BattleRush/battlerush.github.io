@@ -112,7 +112,7 @@
 
             $('.button-collapse').sideNav({
                 menuWidth: 300, // Default is 240
-                edge: 'right', // Choose the horizontal origin
+                edge: 'left', // Choose the horizontal origin
                 closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
             });
 
@@ -122,6 +122,13 @@
 
 </head>
 <body ng-controller="MainController">
+
+
+
+
+
+
+
     <div class="nav-wrapper hoverable">
         <ul id="slide-out" class="side-nav fixed">
             <li><a href="#/tab1">First Sidebar Link</a></li>
@@ -142,7 +149,7 @@
                 </ul>
             </li>
         </ul>
-        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+        <a href="#" data-activates="mobile-demo" class="button-collapse" style="color:white;"><i class="material-icons large">menu</i></a>
 
         <ul class="side-nav" id="mobile-demo">
             <li><a href="#/tab1">First Sidebar Link</a></li>
