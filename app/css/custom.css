@@ -63,5 +63,5 @@ body {
 }
 
 .selectedPokemon{
-    border: 3px dotted blue !important;
+    border: 2px dotted blue !important;
 }
