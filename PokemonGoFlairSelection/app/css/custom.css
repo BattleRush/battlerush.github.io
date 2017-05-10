@@ -1,0 +1,81 @@
+h1, h2, h3, h4, p {
+    color: white;
+}
+
+a {
+    color: darkblue;
+}
+
+table {
+    background-color: rgba(255, 255, 255, 0.35);
+}
+
+    table.striped > tbody > tr:nth-child(odd) {
+        background-color: rgba(180, 180, 180, 0.35);
+    }
+
+    table.striped > tbody > tr > td {
+        border-radius: 0px;
+    }
+
+html {
+    font-size: 14px;
+}
+
+body {
+    background: linear-gradient( rgba(0, 0, 15, 0.60), rgba(0, 0, 0, 0.60) ), url(../../images/background.jpg) no-repeat center center fixed;
+    background-size: cover;
+    background-attachment: fixed;
+    padding: 30px;
+    overflow-x: hidden;
+    font-size: 14px;
+}
+
+.sortorder:after {
+    content: '\25b2';
+}
+
+.sortorder.reverse:after {
+    content: '\25bc';
+}
+
+.thumbnail-item {
+    position: relative;
+}
+
+.tooltip {
+    display: none;
+    left: -200px;
+    top: -200px;
+    position: absolute;
+    padding: 8px 0 0 8px;
+}
+
+.pokemonSelect {
+    cursor: pointer;
+    margin-bottom: .5rem;
+}
+
+.pokemonGeneration {
+    background-color: rgba(0,0,0,0.5);
+    padding: 0 20px 20px 20px;
+}
+
+.selectedPokemon{
+    border: 2px dotted blue !important;
+}
+
+.pokemonName{
+    display: table-cell;
+    vertical-align: middle;
+    padding: 8px; font-size:16px;width:200px; font-weight:bold;
+}
+
+.footerInfo {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 1rem;
+    text-align: center;
+}
